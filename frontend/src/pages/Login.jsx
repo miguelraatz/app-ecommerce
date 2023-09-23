@@ -1,5 +1,5 @@
 import { NavLink, useHistory } from 'react-router-dom';
-import logo from '../images/logo.png'
+import logo from '../images/logo.png';
 import '../styles/Login.css';
 
 function Login() {
