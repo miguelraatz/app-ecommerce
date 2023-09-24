@@ -1,8 +1,10 @@
 package com.sovis.ecommerce.service;
 
+import com.sovis.ecommerce.exception.UserNotFoundException;
 import com.sovis.ecommerce.models.entities.User;
 import com.sovis.ecommerce.models.repositories.UserRepository;
 import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 /**
@@ -37,7 +39,7 @@ public class UserService {
     if (userFound.isPresent()) {
       return userFound.get();
     } else {
-      throw new RuntimeException("User not found");
+      throw new UserNotFoundException();
     }
   }
 }
