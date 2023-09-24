@@ -3,11 +3,11 @@ package com.sovis.ecommerce.models.entities;
 import jakarta.persistence.*;
 
 /**
- * Entity Products.
+ * Entity Product.
  */
 @Entity
 @Table(name = "products")
-public class Products {
+public class Product {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +28,9 @@ public class Products {
   /**
    * Constructor.
    */
-  public Products() {}
+  public Product() {}
 
-  public Products(String name, String description, Double price, String image) {
+  public Product(String name, String description, Double price, String image) {
     this.name = name;
     this.description = description;
     this.price = price;
