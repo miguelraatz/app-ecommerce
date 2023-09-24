@@ -31,4 +31,13 @@ public class UserService {
       return repository.save(user);
     }
   }
+
+  public User getUserByEmail(User user) {
+    Optional<User> userFound = Optional.ofNullable(repository.findByEmail(user.getEmail()));
+    if (userFound.isPresent()) {
+      return userFound.get();
+    } else {
+      throw new RuntimeException("User not found");
+    }
+  }
 }
