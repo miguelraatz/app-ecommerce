@@ -1,10 +1,8 @@
 package com.sovis.ecommerce.models.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.sovis.ecommerce.dto.UserRequestDto;
+import jakarta.persistence.*;
+
 
 /**
  * Entity User.
@@ -16,8 +14,14 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
+  @Column(name = "name")
   private String name;
+
+  @Column(name = "email")
   private String email;
+
+  @Column(name = "password")
   private String password;
 
   public User() {}
@@ -25,11 +29,16 @@ public class User {
   /**
    * Constructor.
    */
-  public User(Long id, String name, String email, String password) {
-    this.id = id;
+  public User(String name, String email, String password) {
     this.name = name;
     this.email = email;
     this.password = password;
+  }
+
+  public User(UserRequestDto user) {
+    this.name = user.name();
+    this.email = user.email();
+    this.password = user.password();
   }
 
   /**
