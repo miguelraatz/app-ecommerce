@@ -3,6 +3,7 @@ package com.sovis.ecommerce.controller;
 import com.sovis.ecommerce.dto.UserRequestDto;
 import com.sovis.ecommerce.models.entities.User;
 import com.sovis.ecommerce.models.repositories.UserRepository;
+import com.sovis.ecommerce.service.UserService;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,16 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
  * Controller User.
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UserController {
-  UserRepository repository;
+  UserService service;
 
   /**
    * Constructor.
    */
   @Autowired
-  public UserController(UserRepository repository) {
-    this.repository = repository;
+  public UserController(UserService service) {
+    this.service = service;
   }
 
   /**
@@ -33,12 +34,8 @@ public class UserController {
    */
   @PostMapping()
   public ResponseEntity<User> registerUser(@RequestBody UserRequestDto userRequestDto) {
-    Optional<User> userFound = Optional.ofNullable(repository.findByEmail(userRequestDto.email()));
-    if (userFound.isPresent()) {
-      throw new RuntimeException("User already exists");
-    }
-    User newUser = new User(userRequestDto);
-    repository.save(newUser);
-    return ResponseEntity.status(HttpStatus.CREATED).build();
+    User userDto = new User(userRequestDto);
+    User registeredUser = service.registerUser(userDto);
+    return ResponseEntity.status(HttpStatus.CREATED).body(registeredUser);
   }
 }
