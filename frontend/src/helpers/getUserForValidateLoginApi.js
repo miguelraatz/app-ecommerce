@@ -1,4 +1,4 @@
-const getUserForValidateLogin = async (body) => {
+const getUserForValidateLoginApi = async (body) => {
   const response = await fetch(`http://localhost:8080/user`, {
       method: 'POST',
       headers: {
@@ -13,4 +13,4 @@ const getUserForValidateLogin = async (body) => {
     return data;
 }
 
-export default getUserForValidateLogin;
+export default getUserForValidateLoginApi;

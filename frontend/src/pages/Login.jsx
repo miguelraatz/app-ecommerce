@@ -2,7 +2,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import logo from '../images/logo.png';
 import '../styles/Login.css';
 import { useState } from 'react';
-import getUserForValidateLogin from '../helpers/getUserForValidateLogin';
+import getUserForValidateLoginApi from '../helpers/getUserForValidateLoginApi';
 import { toast } from 'react-toastify'
 
 function Login() {
@@ -11,10 +11,10 @@ function Login() {
 
   const history = useHistory();
 
-  const fetchUsers = async () => {
+  const fetchUser = async () => {
     try {
       if (!email || !password) return toast.error('Preencha todos os campos!');
-      const user = await getUserForValidateLogin({ email, password });
+      const user = await getUserForValidateLoginApi({ email, password });
       if (user.email === email && user.password === password) {
         history.push('/home');
         toast.success('Login efetuado com sucesso!');
@@ -26,7 +26,7 @@ function Login() {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    await fetchUsers();
+    await fetchUser();
   }
 
   return (

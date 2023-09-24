@@ -28,7 +28,7 @@ public class UserService {
   public User registerUser(User user) {
     Optional<User> userFound = Optional.ofNullable(repository.findByEmail(user.getEmail()));
     if (userFound.isPresent()) {
-      throw new RuntimeException("User already exists");
+      throw new RuntimeException("Usuário já cadastrado!");
     } else {
       return repository.save(user);
     }

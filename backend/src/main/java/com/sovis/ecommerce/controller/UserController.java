@@ -34,11 +34,16 @@ public class UserController {
   /**
    * PostMapping.
    */
-  @PostMapping()
+  @PostMapping("register")
   public ResponseEntity<User> registerUser(@RequestBody UserRequestDto userRequestDto) {
-    User userDto = new User(userRequestDto);
-    User registeredUser = service.registerUser(userDto);
-    return ResponseEntity.status(HttpStatus.CREATED).body(registeredUser);
+    try {
+      User userDto = new User(userRequestDto);
+      User registeredUser = service.registerUser(userDto);
+      return ResponseEntity.status(HttpStatus.CREATED).body(registeredUser);
+    } catch (RuntimeException e) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
+   
   }
 
   @PostMapping("user")
