@@ -1,10 +1,11 @@
 package com.sovis.ecommerce.database;
 
 import com.sovis.ecommerce.models.entities.Product;
-import com.sovis.ecommerce.models.entities.User;
 import com.sovis.ecommerce.models.repositories.ProductRepository;
 import jakarta.annotation.PostConstruct;
 import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,6 +18,7 @@ public class LoadProducts {
   /**
    * Constructor.
    */
+  @Autowired
   public LoadProducts(ProductRepository productRepository) {
     this.productRepository = productRepository;
   }
@@ -65,7 +67,9 @@ public class LoadProducts {
         1699.00,
         "https://http2.mlstatic.com/D_NQ_NP_649496-MLU69483884986_052023-O.webp"
     );
-
+    if (!productRepository.findAll().isEmpty()) {
+      return;
+    }
     productRepository.saveAll(List.of(product1, product2, product3, product4, product5, product6));
   }
 }

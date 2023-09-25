@@ -5,6 +5,7 @@ import com.sovis.ecommerce.models.entities.User;
 import com.sovis.ecommerce.models.repositories.UserRepository;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,6 +19,7 @@ public class UserService {
   /**
    * Constructor.
    */
+  @Autowired
   public UserService(UserRepository repository) {
     this.repository = repository;
   }
