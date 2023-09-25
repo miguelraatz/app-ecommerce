@@ -59,7 +59,6 @@ public class ProductService {
 
       return shoppingCartRepository.save(shoppingCart);
     } catch (Exception e) {
-      e.printStackTrace();
       throw new RuntimeException("Ocorreu um erro ao adicionar o produto ao carrinho.");
     }
   }
