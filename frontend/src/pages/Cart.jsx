@@ -3,10 +3,13 @@ import ProductContext from "../context/ProductContext";
 import Header from "../components/Header";
 import CardProduct from "../components/CardProduct";
 import "../styles/Cart.css";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
+import 'sweetalert2/src/sweetalert2.scss'
 
 function Cart() {
 
-  const { cart } = useContext(ProductContext);
+  const { cart, setCart } = useContext(ProductContext);
 
   return (
     <>
@@ -24,7 +27,26 @@ function Cart() {
           <button
             type="button"
             className="button-login"
-            onClick={(e) => handleClick(e)}
+            onClick={() => {
+              Swal.fire({
+                title: 'Deseja efetuar o pagamento?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText:'Cancelar',
+                confirmButtonText: 'Sim'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire(
+                    'Seu pagamento foi confirmado!',
+                    'Confira as informações no seu e-mail.',
+                    'success'
+                  )
+                  setCart([]);
+                }
+              })
+            }}
           >
             Efetue o pagamento
           </button>
