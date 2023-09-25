@@ -4,7 +4,6 @@ import com.sovis.ecommerce.models.entities.Product;
 import com.sovis.ecommerce.models.repositories.ProductRepository;
 import jakarta.annotation.PostConstruct;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

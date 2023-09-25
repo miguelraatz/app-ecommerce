@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Controller Product.
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/home")
 @CrossOrigin(origins = "http://localhost:5173")
 public class ProductController {
 
@@ -29,7 +29,7 @@ public class ProductController {
     this.service = service;
   }
 
-  @GetMapping("home")
+  @GetMapping()
   public ResponseEntity<List<Product>> getAllProducts() {
     List<Product> products = service.getAllProducts();
     return ResponseEntity.status(HttpStatus.OK).body(products);

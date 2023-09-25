@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import Header from "../components/Header";
 import ProductContext from "../context/ProductContext";
+import CardProduct from "../components/CardProduct";
 
 function Home() {
   const { products, setProducts } = useContext(ProductContext);
@@ -18,11 +19,15 @@ function Home() {
       return data;
     }
     fetchData();
-  }, []);
-
-  console.log(products);
-  
-  return(<Header />)
+  }, []);  
+  return(
+    <>
+      <Header />
+      {products?.map((product) => (
+        <CardProduct key={product.id} product={product} />
+      ))}
+    </>
+    )
 }
 
 export default Home;
