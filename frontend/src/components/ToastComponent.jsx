@@ -13,7 +13,7 @@ export default function ToastComponent() {
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      theme="colored"
+      theme="dark"
     />
   )
 }
