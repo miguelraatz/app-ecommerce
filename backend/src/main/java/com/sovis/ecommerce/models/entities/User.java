@@ -2,6 +2,7 @@ package com.sovis.ecommerce.models.entities;
 
 import com.sovis.ecommerce.dto.UserRequestDto;
 import jakarta.persistence.*;
+import java.util.Set;
 
 
 /**
@@ -23,6 +24,9 @@ public class User {
 
   @Column(name = "password")
   private String password;
+
+  @OneToMany(mappedBy = "user")
+  private Set<ShoppingCart> shoppingCarts;
 
   public User() {}
 

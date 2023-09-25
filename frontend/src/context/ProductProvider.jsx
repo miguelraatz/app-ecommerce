@@ -4,10 +4,11 @@ import ProductContext from "./ProductContext";
 
 function ProductProvider({ children }) {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   const data = useMemo(() => {
-    return { products, setProducts };
-  }, [products]);
+    return { products, setProducts, cart, setCart };
+  }, [products, cart]);
 
   return (
     <ProductContext.Provider value={ data }>{children}</ProductContext.Provider>
