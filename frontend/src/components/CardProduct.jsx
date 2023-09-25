@@ -1,9 +1,12 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import '../styles/CardProduct.css';
 import ProductContext from '../context/ProductContext';
 import requestUserApi from '../helpers/requestUserApi';
+import { useLocation } from 'react-router-dom';
 
 function CardProduct({ product }) {
+
+  const location = useLocation();
 
   const { setCart } = useContext(ProductContext);
     
@@ -24,14 +27,15 @@ function CardProduct({ product }) {
       <div className="card-body">
           <p className="card-description">{product.description}</p>
           <p className="card-price">R$ {product.price}</p>
+          {location.pathname === '/home' && 
           <button
-            type="button"
-            value={product}
-            className="button-login"
-            onClick={ handleClick }
-          >
-            Adicionar ao carrinho
-          </button>
+          type="button"
+          value={product}
+          className="button-login"
+          onClick={ handleClick }
+        >
+          Adicionar ao carrinho
+        </button>}
       </div>
     </section>
   )
