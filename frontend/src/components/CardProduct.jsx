@@ -1,9 +1,11 @@
+import '../styles/CardProduct.css';
+
 function CardProduct({ product }) {
     return (
-        <div className="card">
+        <section className="card-container">
+            <h2 className="card-name">{product.name}</h2>
             <img src={product.image} alt={product.name} className="card-image"/>
             <div className="card-body">
-                <h2 className="card-name">{product.name}</h2>
                 <p className="card-description">{product.description}</p>
                 <p className="card-price">R$ {product.price}</p>
                 <button
@@ -14,7 +16,7 @@ function CardProduct({ product }) {
                   Adicionar ao carrinho
                 </button>
             </div>
-        </div>
+          </section>
     )
 }
 

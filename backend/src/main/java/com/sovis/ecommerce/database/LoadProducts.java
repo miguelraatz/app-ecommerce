@@ -25,15 +25,15 @@ public class LoadProducts {
   @PostConstruct
   public void fillProductTable() {
     Product product1 = new Product(
-        "Notebook Positivo Motion",
+        "Notebook Positivo",
         "Intel Celeron N4000, 4GB RAM, 64GB eMMC,"
-            + "Tela LCD 14” HD, Windows 10 Home S Mode, Cinza - XC3650",
+            + "Tela LCD 14” HD",
         1199.00,
         "https://http2.mlstatic.com/D_NQ_NP_804656-MLU69497665313_052023-O.webp"
     );
 
     Product product2 = new Product(
-        "Notebook Vaio",
+        "Notebook Vaio Ryzen7",
         "Fe15 Ryzen7 16gb 512gb Ssd Linux Prata Titânio",
         3199.00,
         "https://http2.mlstatic.com/D_NQ_NP_700017-MLU71486439814_092023-O.webp"

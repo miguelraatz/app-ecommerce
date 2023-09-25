@@ -1,0 +1,43 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 28%;
+  padding: 10px;
+  margin-top: 10px;
+  margin: 20px;
+}
+
+.card-image {
+  width: 53%;
+  height: 40%;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.card-name {
+  text-align: center;
+}
+
+.card-description {
+  text-align: center;
+}
+
+.card-price {
+  text-align: center;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.card-container:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
