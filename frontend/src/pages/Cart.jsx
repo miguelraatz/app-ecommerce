@@ -38,9 +38,11 @@ function Cart() {
                 confirmButtonText: 'Sim'
               }).then((result) => {
                 if (result.isConfirmed) {
+                  const user = localStorage.getItem('user');
+                  const { email } = JSON.parse(user);
                   Swal.fire(
                     'Seu pagamento foi confirmado!',
-                    'Confira as informações no seu e-mail.',
+                    `Confira as informações no e-mail ${email}.`,
                     'success'
                   )
                   setCart([]);

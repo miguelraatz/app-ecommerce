@@ -15,6 +15,7 @@ function Header() {
         <h2 onClick={ () => history.push('/cart') }>Meu Carrinho <AiOutlineShoppingCart className="icon" /></h2>
         <h2 onClick={ () => {
           toast.success('Logout efetuado com sucesso!');
+          localStorage.clear();
           history.push('/');
         } }>Sair <AiOutlineLogout className="icon" /></h2>
       </div>
