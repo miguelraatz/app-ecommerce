@@ -8,17 +8,15 @@ function Header() {
 
   const history = useHistory();
 
-  const handleClick = () => {
-    toast.success('Logout efetuado com sucesso!');
-    history.push('/');
-  }
-
   return (
     <header className="header">
       <img src={logo} alt="Logo" className="header__logo" />
       <div className="container-cart">
-        <h2>Meu Carrinho <AiOutlineShoppingCart className="icon" /></h2>
-        <h2 onClick={ handleClick }>Sair <AiOutlineLogout className="icon" /></h2>
+        <h2 onClick={ () => history.push('/cart') }>Meu Carrinho <AiOutlineShoppingCart className="icon" /></h2>
+        <h2 onClick={ () => {
+          toast.success('Logout efetuado com sucesso!');
+          history.push('/');
+        } }>Sair <AiOutlineLogout className="icon" /></h2>
       </div>
     </header>
   )
