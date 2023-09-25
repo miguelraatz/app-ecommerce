@@ -20,7 +20,8 @@ function Home() {
       return data;
     }
     fetchData();
-  }, []);  
+  }, []);
+  
   return(
     <div className="container-home">
       <Header />

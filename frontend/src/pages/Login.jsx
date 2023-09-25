@@ -16,6 +16,8 @@ function Login() {
       if (!email || !password) return toast.error('Preencha todos os campos!');
       const user = await requestUserApi('user', 'POST', { email, password });
       if (user.email === email && user.password === password) {
+        const usuarioJSON = JSON.stringify(user);
+        localStorage.setItem('user', usuarioJSON);
         history.push('/home');
         toast.success('Login efetuado com sucesso!');
       }

@@ -1,14 +1,21 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import '../styles/CardProduct.css';
 import ProductContext from '../context/ProductContext';
+import requestUserApi from '../helpers/requestUserApi';
 
 function CardProduct({ product }) {
 
   const { setCart } = useContext(ProductContext);
-
-  const handleClick = useCallback (() => {
+    
+  const handleClick = async () => {
+    const userJSON = localStorage.getItem('user');
+    if (!userJSON) {
+      throw new Error('Usuário não encontrado');
+    }
+    const user = JSON.parse(userJSON);
     setCart((prevCart) => [...prevCart, product]);
-  }, [product, setCart]);
+    await requestUserApi('home', 'POST', { userId: user.id, productId: product.id });
+  };
 
   return (
     <section className="card-container">
