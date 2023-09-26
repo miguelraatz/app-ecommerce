@@ -14,7 +14,7 @@ function Login() {
   const fetchUser = async () => {
     try {
       if (!email || !password) return toast.error('Preencha todos os campos!');
-      const user = await requestUserApi('user', 'POST', { email, password });
+      const user = await requestUserApi('login', 'POST', { email, password });
       if (user.email === email && user.password === password) {
         const usuarioJSON = JSON.stringify(user);
         localStorage.setItem('user', usuarioJSON);

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 public class UserController {
   UserService service;
 
@@ -46,7 +46,7 @@ public class UserController {
    
   }
 
-  @PostMapping("user")
+  @PostMapping("login")
   public ResponseEntity<User> getUserByEmail(@RequestBody UserRequestDto userRequestDto) {
     try {
       User userDto = new User(userRequestDto);
