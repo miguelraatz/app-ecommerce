@@ -48,7 +48,6 @@
 @media (max-width: 500px) {
   .card-container {
     width: 80%;
-    border: 1px solid black;
   }
 
   .card-name {
