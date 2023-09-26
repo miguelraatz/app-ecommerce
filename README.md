@@ -16,23 +16,32 @@ cd app-ecommerce
 ```
 ___ 
 
-<details><summary>Iniciando Backend e banco MySQL:gear:</summary>
+<details><summary>Iniciando banco MySQL:gear:</summary>
 
 Entre no diretório:
 ```bash
 cd backend
 ```
-Instale as dependências:
-```bash
-mvn install
-```
-Execute o docker-compose:
+Inicie o Docker Compose:
 ```bash
 docker-compose up
 ```
 </details>
 
 ___ 
+
+<details><summary>Iniciando Frontend :computer:</summary>
+
+Entre no diretório:
+```bash
+cd backend
+```
+Execute o arquivo EcommerceApplication
+
+</details>
+
+___ 
+
 
 <details><summary>Iniciando Frontend :computer:</summary>
 
