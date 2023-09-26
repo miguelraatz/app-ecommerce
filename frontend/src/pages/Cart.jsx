@@ -43,6 +43,9 @@ function Cart() {
       confirmButtonText: 'Sim'
     }).then(async (result) => {
       if (result.isConfirmed) {
+        await fetch(`http://localhost:8080/cart`, {
+          method: 'DELETE'
+        });
         const user = localStorage.getItem('user');
         const { email, id } = JSON.parse(user);
         sendEmail(email);
@@ -52,10 +55,6 @@ function Cart() {
           'success'
         )
         setCart([]);
-        cart?.map((products) => products.map(async (product) => {
-          await requestDeleteApi('cart', id, product.id);
-        }));
-        
       }
     })
   }

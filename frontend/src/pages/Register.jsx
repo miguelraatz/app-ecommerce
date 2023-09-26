@@ -63,7 +63,7 @@ function Register() {
     <button
       type="button"
       className="button-register"
-      onClick={ () => history.goBack() }
+      onClick={ () => history.push('/') }
     >
       Voltar
     </button>

@@ -58,4 +58,7 @@ public class CartService {
     }
   }
 
+  public void deleteAllItems() {
+    repository.deleteAll();
+  }
 }
