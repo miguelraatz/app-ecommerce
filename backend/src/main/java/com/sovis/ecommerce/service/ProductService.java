@@ -55,7 +55,7 @@ public class ProductService {
 
       Product product = productRepository.findById(productId).orElse(null);
       if (product != null) {
-        shoppingCart.setProductsId(product);
+        shoppingCart.setProducts(product);
       } else {
         throw new IllegalArgumentException("Produto não encontrado com o ID especificado.");
       }

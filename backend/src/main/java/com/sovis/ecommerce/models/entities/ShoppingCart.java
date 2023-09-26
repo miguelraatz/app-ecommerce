@@ -24,7 +24,7 @@ public class ShoppingCart {
       joinColumns = @JoinColumn(name = "cart_id"),
       inverseJoinColumns = @JoinColumn(name = "product_id")
   )
-  private List<Product> productsId = new ArrayList<>();
+  private List<Product> products = new ArrayList<>();
 
   public Long getId() {
     return id;
@@ -38,12 +38,12 @@ public class ShoppingCart {
     return user;
   }
 
-  public List<Product> getProductsId() {
-    return productsId;
+  public List<Product> getProducts() {
+    return products;
   }
 
-  public void setProductsId(Product id) {
-    this.productsId.add(id);
+  public void setProducts(Product id) {
+    this.products.add(id);
   }
 
   public void setUser(User user) {

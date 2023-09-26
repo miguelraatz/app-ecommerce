@@ -10,7 +10,9 @@ function Header() {
 
   return (
     <header className="header">
-      <img src={logo} alt="Logo" className="header__logo" />
+      <button type="button" className="button-header" onClick={ () => history.push('/home') }>
+        <img src={logo} alt="Logo" className="header__logo" />
+      </button>
       <div className="container-cart">
         <h2 onClick={ () => history.push('/cart') }>Meu Carrinho <AiOutlineShoppingCart className="icon" /></h2>
         <h2 onClick={ () => {

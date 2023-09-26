@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router';
 import '../styles/Register.css';
 import { useState } from 'react';
-import requestUserApi from '../helpers/requestUserApi';
+import requestApi from '../helpers/requestApi';
 import { toast } from 'react-toastify';
 
 function Register() {
@@ -15,7 +15,7 @@ function Register() {
   const registerUser = async () => {
     try {
       if (!name || !email || !password) return toast.error('Preencha todos os campos!');
-      await requestUserApi('register', 'POST', { name, email, password });
+      await requestApi('register', 'POST', { name, email, password });
       toast.success('Usuário cadastrado com sucesso!');
       history.goBack();
     } catch (error) {

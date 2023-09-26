@@ -2,22 +2,16 @@ import { useContext, useEffect } from "react";
 import Header from "../components/Header";
 import ProductContext from "../context/ProductContext";
 import CardProduct from "../components/CardProduct";
+import requestGetApi from "../helpers/requestGetApi";
 import "../styles/Home.css";
 
 function Home() {
   const { products, setProducts } = useContext(ProductContext);
 
-  useEffect(() => {  
+  useEffect(() => {
     async function fetchData() {
-      const response = await fetch('http://localhost:8080/home', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      });
-      const data = await response.json();
+      const data = await requestGetApi("home")
       setProducts(data);
-      return data;
     }
     fetchData();
   }, []);

@@ -1,4 +1,4 @@
-const requestUserApi = async (endpoint, method, body) => {
+const requestApi = async (endpoint, method, body) => {
   const response = await fetch(`http://localhost:8080/${endpoint}`, {
       method: method,
       headers: {
@@ -10,4 +10,4 @@ const requestUserApi = async (endpoint, method, body) => {
     return data;
 }
 
-export default requestUserApi;
+export default requestApi;

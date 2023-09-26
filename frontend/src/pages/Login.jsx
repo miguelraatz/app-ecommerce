@@ -3,7 +3,7 @@ import logo from '../images/logo.png';
 import '../styles/Login.css';
 import { useState } from 'react';
 import { toast } from 'react-toastify'
-import requestUserApi from '../helpers/requestUserApi';
+import requestApi from '../helpers/requestApi';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -14,7 +14,7 @@ function Login() {
   const fetchUser = async () => {
     try {
       if (!email || !password) return toast.error('Preencha todos os campos!');
-      const user = await requestUserApi('login', 'POST', { email, password });
+      const user = await requestApi('login', 'POST', { email, password });
       if (user.email === email && user.password === password) {
         const usuarioJSON = JSON.stringify(user);
         localStorage.setItem('user', usuarioJSON);

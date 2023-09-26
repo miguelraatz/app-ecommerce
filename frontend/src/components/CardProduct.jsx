@@ -1,14 +1,12 @@
-import { useContext } from 'react';
 import '../styles/CardProduct.css';
-import ProductContext from '../context/ProductContext';
-import requestUserApi from '../helpers/requestUserApi';
+import requestApi from '../helpers/requestApi';
 import { useLocation } from 'react-router-dom';
+import requestDeleteApi from '../helpers/requestDeleteApi';
+import { toast } from 'react-toastify';
 
 function CardProduct({ product }) {
 
   const location = useLocation();
-
-  const { setCart } = useContext(ProductContext);
     
   const handleClick = async () => {
     const userJSON = localStorage.getItem('user');
@@ -16,8 +14,13 @@ function CardProduct({ product }) {
       throw new Error('Usuário não encontrado');
     }
     const user = JSON.parse(userJSON);
-    setCart((prevCart) => [...prevCart, product]);
-    await requestUserApi('home', 'POST', { userId: user.id, productId: product.id });
+    if (location.pathname === '/home') {
+      await requestApi('home', 'POST', { userId: user.id, productId: product.id });
+      toast.success('Produtos adicionado com sucesso!');
+    } else {
+      toast.success('Produto removido com sucesso!');
+      await requestDeleteApi('cart', user.id, product.id);
+    }
   };
 
   return (
@@ -27,15 +30,14 @@ function CardProduct({ product }) {
       <div className="card-body">
           <p className="card-description">{product.description}</p>
           <p className="card-price">R$ {product.price}</p>
-          {location.pathname === '/home' && 
           <button
           type="button"
           value={product}
           className="button-login"
           onClick={ handleClick }
         >
-          Adicionar ao carrinho
-        </button>}
+          {location.pathname === '/home' ? 'Adicionar ao carrinho' : 'Remover'}
+        </button>
       </div>
     </section>
   )

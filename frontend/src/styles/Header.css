@@ -10,6 +10,22 @@
   justify-content: space-between;
 }
 
+.button-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(109, 41, 212);
+  width: 30%;
+  border: none;
+  height: 100%;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.button-header:hover img {
+  scale: 1.1;
+}
+
 .header__logo {
   height: 60%;
   display: flex;
