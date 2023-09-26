@@ -1,7 +1,7 @@
 ### App Ecommerce
 
-<a href="hhttps://www.figma.com/community/file/1288540261582361619/ecommerce" target="_blank">Protótipo</a>
-Figma
+<a href="hhttps://www.figma.com/community/file/1288540261582361619/ecommerce">Protótipo Figma
+</a>
 
 
 ___
