@@ -44,3 +44,26 @@
   cursor: pointer;
   scale: 1.1;
 }
+
+@media (max-width: 500px) {
+  .card-container {
+    width: 80%;
+    border: 1px solid black;
+  }
+
+  .card-name {
+    font-size: 22px;
+  }
+
+  .card-description {
+    font-size: 14px;
+  }
+
+  .card-price {
+    font-size: 18px;
+  }
+
+  .button-login {
+    width: 90%;
+  }
+}
