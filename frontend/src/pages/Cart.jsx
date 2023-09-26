@@ -11,6 +11,40 @@ function Cart() {
 
   const { cart, setCart } = useContext(ProductContext);
 
+  const sendEmail = async (to) => {
+    const response = await fetch(`http://localhost:8080/email/send?to=${to}&subject=Compra realizada com 
+    sucesso&message=Obrigado por comprar conosco!`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+  }
+
+  const handleClick = () => {
+    Swal.fire({
+      title: 'Deseja efetuar o pagamento?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText:'Cancelar',
+      confirmButtonText: 'Sim'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const user = localStorage.getItem('user');
+        const { email } = JSON.parse(user);
+        sendEmail(email);
+        Swal.fire(
+          'Seu pagamento foi confirmado!',
+          `Confira as informações no e-mail ${email}`,
+          'success'
+        )
+        setCart([]);
+      }
+    })
+  }
+
   return (
     <>
       <Header />
@@ -27,28 +61,7 @@ function Cart() {
           <button
             type="button"
             className="button-login"
-            onClick={() => {
-              Swal.fire({
-                title: 'Deseja efetuar o pagamento?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                cancelButtonText:'Cancelar',
-                confirmButtonText: 'Sim'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  const user = localStorage.getItem('user');
-                  const { email } = JSON.parse(user);
-                  Swal.fire(
-                    'Seu pagamento foi confirmado!',
-                    `Confira as informações no e-mail ${email}.`,
-                    'success'
-                  )
-                  setCart([]);
-                }
-              })
-            }}
+            onClick={ handleClick }
           >
             Efetue o pagamento
           </button>

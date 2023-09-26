@@ -45,5 +45,4 @@ public class ProductController {
         .addProductToCart(cartRequestDto.userId(), cartRequestDto.productId());
     return ResponseEntity.status(HttpStatus.OK).body(product);
   }
-
 }

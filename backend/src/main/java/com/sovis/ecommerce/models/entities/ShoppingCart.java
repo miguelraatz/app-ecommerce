@@ -1,7 +1,7 @@
 package com.sovis.ecommerce.models.entities;
 import jakarta.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Entity Cart.
@@ -24,7 +24,7 @@ public class ShoppingCart {
       joinColumns = @JoinColumn(name = "cart_id"),
       inverseJoinColumns = @JoinColumn(name = "product_id")
   )
-  private Set<Product> productsId = new HashSet<>();
+  private List<Product> productsId = new ArrayList<>();
 
   public Long getId() {
     return id;
@@ -38,7 +38,7 @@ public class ShoppingCart {
     return user;
   }
 
-  public Set<Product> getProductsId() {
+  public List<Product> getProductsId() {
     return productsId;
   }
 

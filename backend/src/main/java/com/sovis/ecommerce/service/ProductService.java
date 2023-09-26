@@ -37,6 +37,9 @@ public class ProductService {
     return productRepository.findAll();
   }
 
+  /**
+   * Add product to cart.
+   */
   public ShoppingCart addProductToCart(Long userId, Long productId) {
     try {
       if (productId == null) {
@@ -62,5 +65,4 @@ public class ProductService {
       throw new RuntimeException("Ocorreu um erro ao adicionar o produto ao carrinho.");
     }
   }
-
 }
