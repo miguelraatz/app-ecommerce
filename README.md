@@ -12,7 +12,7 @@ git clone git@github.com:miguelraatz/app-ecommerce.git
 ```
 Entre no diretório:
 ```bash
-cd teste-sovis
+cd app-ecommerce
 ```
 ___ 
 
