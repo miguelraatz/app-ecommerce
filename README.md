@@ -30,7 +30,7 @@ docker-compose up
 
 ___ 
 
-<details><summary>Iniciando Frontend :computer:</summary>
+<details><summary>Iniciando Backend :computer:</summary>
 
 Entre no diretório:
 ```bash
