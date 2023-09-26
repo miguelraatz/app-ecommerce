@@ -14,7 +14,7 @@ function CardProduct({ product }) {
   const handleClick = async () => {
     if (location.pathname === '/home') {
       await requestApi('home', 'POST', { userId: user.id, productId: product.id });
-      toast.success('Produtos adicionado com sucesso!');
+      toast.success('Produtos adicionado ao carrinho!');
     } else {
       await requestDeleteApi('cart', user.id, product.id);
       toast.success('Produto removido com sucesso!');

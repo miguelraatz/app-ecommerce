@@ -68,3 +68,26 @@
   color: rgb(0, 213, 226);
   cursor: pointer;
 }
+
+@media (max-width: 500px) {
+  .container-login__section {
+    width: 100%;
+  }
+
+  .logo-login {
+    margin-top: 10px;
+    width: 240px;
+  }
+
+  .input-login {
+    width: 240px;
+    height: 25px;
+    font-size: 14px;
+  }
+
+  .button-login {
+    width: 240px;
+    height: 25px;
+    font-size: 14px;
+  }
+}
