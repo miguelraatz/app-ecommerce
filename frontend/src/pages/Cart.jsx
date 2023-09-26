@@ -5,9 +5,7 @@ import CardProduct from "../components/CardProduct";
 import requestGetApi from "../helpers/requestGetApi";
 import "../styles/Cart.css";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
-
 import 'sweetalert2/src/sweetalert2.scss'
-import requestDeleteApi from "../helpers/requestDeleteApi";
 
 function Cart() {
 
@@ -15,7 +13,7 @@ function Cart() {
   
   useEffect(() => {
     async function fetchData() {
-      const data = await requestGetApi("cart")
+      const data = await requestGetApi(`cart`)
       const products = data.map((product) => product.products);
       setCart(products);
     }
@@ -47,7 +45,7 @@ function Cart() {
           method: 'DELETE'
         });
         const user = localStorage.getItem('user');
-        const { email, id } = JSON.parse(user);
+        const { email } = JSON.parse(user);
         sendEmail(email);
         Swal.fire(
           'Seu pagamento foi confirmado!',
