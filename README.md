@@ -33,6 +33,9 @@ ___
 
 Entre no diretório:
 ```bash
+cd ..
+```
+```bash
 cd frontend
 ```
 Instale as dependências:
@@ -58,6 +61,9 @@ ___
 | `/home`     | GET   | Recupera todos os produtos do banco.                                     |  
 | `/home` | POST   | Adiciona produto ao carrinho.      | `{ "name": string, "description": string, "price": number, "image": string } `                                          |
 | `/email/send`     | POST   | Envia e-mail após a compra.                                     | `{ "to": string, "subject": string, "message": string }`      |
+| `/cart` | GET   | Recupera itens carrinho.      |                                           |
+| `/cart` | DELETE   | Deleta todos os itens do carrinho.      |                                           |
+| `/cart/{userId}/productId` | DELETE   | Deleta item do carrinho.      |                                           |
 </details>
 
 ___
@@ -125,6 +131,11 @@ Java Boot Starter Email -
 # Simplificação do Envio de Emails: O Spring Boot Starter Email simplifica o processo de envio de emails em aplicativos, fornecendo configurações predefinidas para os serviços de email.
 
 # Integração Fácil: Oferece integração fácil com serviços de email populares, como SMTP e Gmail, por meio de configurações simples.
+```
+
+```bash
+Docker -
+# Isolamento e Portabilidade: O Docker permite empacotar o aplicativo, suas dependências e o banco de dados em contêineres isolados. Isso garante que todas as configurações e dependências estejam contidas em um ambiente consistente, tornando-o altamente portátil. 
 ```
 
 </details>
