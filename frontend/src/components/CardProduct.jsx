@@ -3,25 +3,32 @@ import requestApi from '../helpers/requestApi';
 import { useLocation } from 'react-router-dom';
 import requestDeleteApi from '../helpers/requestDeleteApi';
 import { toast } from 'react-toastify';
+import { useEffect, useState } from 'react';
 
 function CardProduct({ product }) {
+
+  const [user, setUser] = useState({});
 
   const location = useLocation();
     
   const handleClick = async () => {
+    if (location.pathname === '/home') {
+      await requestApi('home', 'POST', { userId: user.id, productId: product.id });
+      toast.success('Produtos adicionado com sucesso!');
+    } else {
+      await requestDeleteApi('cart', user.id, product.id);
+      toast.success('Produto removido com sucesso!');
+    }
+  };
+
+  useEffect(() => {
     const userJSON = localStorage.getItem('user');
     if (!userJSON) {
       throw new Error('Usuário não encontrado');
     }
     const user = JSON.parse(userJSON);
-    if (location.pathname === '/home') {
-      await requestApi('home', 'POST', { userId: user.id, productId: product.id });
-      toast.success('Produtos adicionado com sucesso!');
-    } else {
-      toast.success('Produto removido com sucesso!');
-      await requestDeleteApi('cart', user.id, product.id);
-    }
-  };
+    setUser(user);
+  }, []);
 
   return (
     <section className="card-container">

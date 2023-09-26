@@ -20,7 +20,7 @@ function Cart() {
       setCart(products);
     }
     fetchData();
-  }, []);
+  }, [cart]);
   
   const sendEmail = async (to) => {
     await fetch(`http://localhost:8080/email/send?to=${to}&subject=Compra realizada com 
